@@ -141,6 +141,10 @@ def detailed_chapters(slug):
  return [overview,goals,render(data['process']),render(data['visual']),render_outcome_cards(data['why'])]
 
 for i,p in enumerate(projects):
+ if p['slug']=='husky':
+  from husky_editorial import render_husky
+  save(Path('work/husky/index.html'),render_husky(p,original_sections('husky'),head,header,footer,icon))
+  continue
  sec=original_sections(p['slug']);focus=sec.get('Focus',sec.get('Project Snapshot',[]));challenge=find_after(focus,'The Challenge');solution=find_after(focus,'The Solution') or find_after(focus,'The Approach')
  overview=f'<div class="overview-split"><div><span class="micro">THE CHALLENGE</span><p>{e(challenge)}</p></div><div><span class="micro">THE SOLUTION</span><p>{e(solution)}</p></div></div>'
  if p['slug']=='husky':
