@@ -141,30 +141,11 @@ def detailed_chapters(slug):
  return [overview,goals,render(data['process']),render(data['visual']),render_outcome_cards(data['why'])]
 
 for i,p in enumerate(projects):
- if p['slug']=='husky':
-  from husky_editorial import render_husky
-  save(Path('work/husky/index.html'),render_husky(p,original_sections('husky'),head,header,footer,icon))
-  continue
- sec=original_sections(p['slug']);focus=sec.get('Focus',sec.get('Project Snapshot',[]));challenge=find_after(focus,'The Challenge');solution=find_after(focus,'The Solution') or find_after(focus,'The Approach')
- overview=f'<div class="overview-split"><div><span class="micro">THE CHALLENGE</span><p>{e(challenge)}</p></div><div><span class="micro">THE SOLUTION</span><p>{e(solution)}</p></div></div>'
- if p['slug']=='husky':
-  goals=[t for tag,t in sec.get('Goals',[]) if tag=='p']
-  content=[overview,'<ol class="goal-list goal-grid">'+''.join(f'<li><span class="micro">0{j+1}</span>{e(t)}</li>' for j,t in enumerate(goals))+'</ol>',blocks(sec.get('Process / Experience Structure',[]),True),blocks(sec.get('Art Direction / Visual System',[]),True),outcome_cards(sec.get('Why It Worked',[]))]
- else:
-  f=focused[p['slug']]
-  content=[overview,'<ol class="goal-list">'+''.join(f'<li><span class="micro">0{j+1}</span>{e(t)}</li>' for j,t in enumerate(f['goals']))+'</ol>',f'<div class="design-note"><span class="micro">EXPERIENCE STRUCTURE</span><p>{e(f["process"])}</p></div>',f'<div class="design-note"><span class="micro">DESIGN DIRECTION</span><p>{e(f["visual"])}</p></div>',f'<div class="design-note"><span class="micro">DESIGN RATIONALE</span><p>{e(f["why"])}</p></div>']
-  if p.get('image'):content[3]+=figure(p['image'],p['client']+' — '+p['short'])
- if p['slug'] in ['zales','leidos-animation']:
-  content[4]=render_outcome_cards([{'title':'Product-Focused Exploration' if p['slug']=='zales' else 'Pacing And Visual Continuity','paragraphs':[f['why']],'image':p['image'],'caption':p['client']+' — '+p['short']}])
- if p['slug'] in ['mattermost','lockheed-martin','leidos-cld']:content=detailed_chapters(p['slug'])
- page=head(p['client']+' / '+p['short'],p['description'],'project-page')+header('work')+f'<main id="main"><div class="project-top page-shell"><div class="page-kicker micro"><a href="/work/">{icon("left")} ALL WORK</a></div><div class="project-heading"><div><h1>{e(p["short"])}</h1><p>{e(p["description"])}</p></div></div><dl class="project-facts"><div><dt class="micro">CLIENT</dt><dd>{e(p["client"])}</dd></div><div><dt class="micro">ROLE</dt><dd>{e(p["role"])}</dd></div><div><dt class="micro">FOCUS</dt><dd>{e(p["responsibilities"])}</dd></div><div><dt class="micro">PROJECT</dt><dd>0{i+1} / 06</dd></div></dl><div class="project-hero" data-parallax>{cover(p,False)}</div></div><section class="chapter-system page-shell" aria-label="Explore the case study"><aside class="chapter-rail"><div class="micro chapter-label">CASE STUDY / 05 CHAPTERS</div><div class="chapter-tabs" role="tablist" aria-label="Case study chapters" aria-orientation="horizontal">'
- for j,label in enumerate(labels):page+=f'<button role="tab" type="button" id="tab-{keys[j]}" data-chapter="{j}" aria-controls="panel-{keys[j]}" aria-selected="{str(j==0).lower()}" tabindex="{0 if j==0 else -1}"><span class="micro">0{j+1}</span><span>{label}</span>{icon()}</button>'
- page+='</div></aside><div class="chapter-content">'
- for j,label in enumerate(labels):page+=f'<section class="chapter-panel" role="tabpanel" id="panel-{keys[j]}" aria-labelledby="tab-{keys[j]}" tabindex="0" {"hidden" if j else ""}><div class="chapter-heading"><span class="chapter-number" aria-hidden="true">0{j+1}</span><div><span class="micro">CHAPTER / 0{j+1}</span><h2>{label}</h2></div></div><div class="chapter-body">{content[j]}</div></section>'
- page+='</div></section>'
- nxt=projects[(i+1)%6]
- page+=f'<section class="next-project page-shell"><span class="micro">KEEP EXPLORING / NEXT PROJECT</span><a href="/work/{nxt["slug"]}/"><div><span class="micro">0{(i+1)%6+1} / 06 — {e(nxt["short"])}</span><h2>{e(nxt["client"])}</h2></div><span class="next-caret">{icon()}</span></a></section></main>'+footer()
- save(Path('work')/p['slug']/'index.html',page)
+ from husky_editorial import render_project
+ data_path=ROOT/(p['slug']+'-case-study.json')
+ editorial_data=json.loads(data_path.read_text()) if data_path.exists() else None
+ save(Path('work')/p['slug']/'index.html',render_project(p,projects,original_sections(p['slug']),editorial_data,focused.get(p['slug']),head,header,footer,icon))
+ continue
 profile='<div class="profile-frame" role="img" aria-label="Profile photograph placeholder"><div class="profile-corner micro">PROFILE / 001</div><svg viewBox="0 0 200 240" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="100" cy="83" r="32"/><path d="M36 204v-24c0-34 26-56 64-56s64 22 64 56v24"/></svg><span class="micro">PORTRAIT TO FOLLOW</span></div>'
 resume=link('DOWNLOAD RÉSUMÉ',settings['resume'],'outline') if settings['resume'] else '<button class="button outline" disabled aria-describedby="resume-note"><span>DOWNLOAD RÉSUMÉ</span>'+icon('down')+'</button><p class="micro muted" id="resume-note">RÉSUMÉ WILL BE AVAILABLE HERE SOON.</p>'
 if settings['resume']:resume=resume.replace('<a ','<a download ')

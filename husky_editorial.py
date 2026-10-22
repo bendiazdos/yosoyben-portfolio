@@ -65,3 +65,89 @@ def render_husky(p,sections,head,header,footer,icon):
  page+='<div class="ed-takeaway"><span class="micro">DESIGN TAKEAWAY</span><p>A clear visitor path. A shared interaction model. A reusable UI system.</p></div></section>'
  page+='<a class="ed-next ed-shell" href="/work/lockheed-martin/"><span class="micro">NEXT PROJECT / 02</span><div><h2>Lockheed Martin</h2><span class="ed-next-arrow" aria-hidden="true">↗</span></div><span class="micro">PRODUCT VISUALIZER</span></a></main>'+footer()
  return page
+
+def render_project(p,projects,sections,data,focus,head,header,footer,icon):
+ """Shared editorial case studies, using only the project's existing material."""
+ import re
+ from pathlib import Path
+ if p['slug']=='husky':
+  page=render_husky(p,sections,head,header,footer,icon)
+  page=re.sub(r'<div class="ed-preview ed-shell micro">.*?</div>','',page,count=1)
+  return page
+ def paras(items):return ''.join('<p>'+e(t)+'</p>' for t in items)
+ def media(filename,caption,cls='',priority=False):
+  return f'<figure class="ed-media {cls}"><button class="ed-image" type="button" data-enlarge aria-label="Enlarge {e(caption)}"><img src="/assets/{e(filename)}" alt="{e(caption)}" {"fetchpriority=high" if priority else "loading=lazy"} decoding="async"><span class="ed-enlarge" aria-hidden="true">{icon()}<span>EXPAND IMAGE</span></span></button><figcaption class="micro"><span>VISUAL DOCUMENT</span><span>{e(caption)}</span></figcaption></figure>'
+ def links(items):
+  return '<div class="ed-source-links">'+''.join(f'<a class="micro" href="{e(url)}" target="_blank" rel="noopener">{e(label)} ↗</a>' for label,url in items if 'figma.com' not in url)+'</div>' if items else ''
+ def detail(title,body):return f'<details class="ed-details"><summary><span>{e(title)}</span><span class="ed-plus" aria-hidden="true">+</span></summary><div class="ed-detail-body">{body}</div></details>'
+ def group(g,include_image=True):
+  body=paras(g['paragraphs'])
+  if include_image and g.get('image'):body+=media(g['image'],g.get('caption',g['title']))
+  gal=g.get('gallery')
+  if gal:
+   body+='<div class="ed-samples"><span class="micro">'+e(gal['title'])+'</span>'
+   body+=''.join(media(x['image'],x['caption']) for x in gal.get('samples',[])) or '<p>'+e(gal.get('empty',''))+'</p>'
+   body+='</div>'
+  return body+links(g.get('links',[]))
+ def heading(n,kicker,title):
+  return f'<div class="ed-section-heading"><span class="ed-number">{n:02d}</span><div><span class="micro">{e(kicker)}</span><h2>{e(title)}</h2></div></div>'
+ def after(title):
+  found=False;out=[]
+  for tag,text in sections.get('Focus',[]):
+   if tag=='h3':found=text==title
+   elif found:out.append(text)
+  return ' '.join(out)
+ if data:
+  challenge=data['challenge'];solution=data['solution'];goals=data['goals'];process=data['process'];visual=data['visual'];why=data['why']
+ else:
+  challenge=after('The Challenge');solution=after('The Approach');goals=focus['goals']
+  process=[{'title':'Experience Structure','paragraphs':[focus['process']]}]
+  visual=[{'title':'Design Direction','paragraphs':[focus['visual']]}]
+  why=[{'title':'Product-Focused Exploration' if p['slug']=='zales' else 'Pacing And Visual Continuity','paragraphs':[focus['why']]}]
+ visual_lead=next((g['image'] for g in visual if g.get('image')),None)
+ context=next((g for g in reversed(visual) if g.get('image') and g['image']!=visual_lead),None)
+ context=context or next((g for g in reversed(process) if g.get('image') and g['image']!=p['image']),None)
+ nav=[('experience','Experience'),('challenge','Challenge'),('interaction','Interaction'),('visual-language','Visual language')]
+ if context:nav.append(('show-floor','In context'))
+ nav.append(('outcomes','Takeaways'))
+ css=hashlib.sha256((Path(__file__).parent/'dist/husky-editorial.css').read_bytes()).hexdigest()[:10]
+ js=hashlib.sha256((Path(__file__).parent/'dist/husky-editorial.js').read_bytes()).hexdigest()[:10]
+ page=head(p['client']+' / '+p['short'],p['description'],'husky-editorial editorial-project')
+ page=page.replace('</head>',f'<link rel="stylesheet" href="/husky-editorial.css?v={css}"><script defer src="/husky-editorial.js?v={js}"></script></head>')+header('work')
+ title=p['title'];parts=title.rstrip('.').split('. ')
+ headline='<br>'.join(e(x)+'.' for x in parts[:-1])+('<br>' if len(parts)>1 else '')+'<em>'+e(parts[-1])+'.</em>'
+ page+='<main id="main"><section class="ed-opening" id="experience"><div class="ed-shell"><div class="ed-kicker micro"><a href="/work/">'+icon('left')+' ALL WORK</a><span>'+e(p['client'])+' / '+e(p['short'])+'</span><span>'+f'{projects.index(p)+1:02d} — 06'+'</span></div>'
+ page+='<div class="ed-title-grid"><h1>'+headline+'</h1><div class="ed-intro"><span class="micro">'+e(p['short'])+'</span>'+paras([p['description']])+'<a class="ed-down micro" href="#challenge">THE THINKING BEHIND THE EXPERIENCE ↓</a></div></div></div>'+media(p['image'],p['alt'],'ed-hero',True)+'</section>'
+ page+='<nav class="ed-index" aria-label="Case study sections"><div class="ed-shell" style="--ed-count:'+str(len(nav))+'">'+''.join(f'<a href="#{id}"><span class="micro">{n:02d}</span>{e(label)}</a>' for n,(id,label) in enumerate(nav,1))+'</div></nav>'
+ page+='<section class="ed-section ed-shell" id="challenge">'+heading(2,'THE DESIGN CHALLENGE','The brief. The responsibility.')
+ page+='<div class="ed-challenge-grid"><aside class="ed-role"><span class="micro">MY ROLE</span><h3>'+e(p['role'])+'</h3><span class="micro">RESPONSIBILITIES</span>'+paras([p['responsibilities']])+'<span class="micro">CLIENT</span>'+paras([p['client']])+'</aside><div class="ed-challenge-copy"><span class="micro ed-label">THE CHALLENGE</span>'+paras([challenge])
+ page+=detail('The approach',paras([solution]))+detail('Design goals','<ol class="ed-goals">'+''.join(f'<li><span class="micro">{n:02d}</span>{e(t)}</li>' for n,t in enumerate(goals,1))+'</ol>')
+ if data:page+=detail('My contribution',paras([data['role']]))+links(data.get('overview_links',[]))
+ else:page+=detail('Project context',paras([t for tag,t in sections.get('Project',[]) if tag=='p']))
+ page+='</div></div></section>'
+ page+='<section class="ed-section ed-shell" id="interaction">'+heading(3,'EXPERIENCE STRUCTURE',{'lockheed-martin':'Two surfaces. One experience.','mattermost':'From scenario to action.','leidos-cld':'A story shaped by scrolling.','zales':'Discovery through interaction.','leidos-animation':'A story shaped by pacing.'}[p['slug']])
+ selected=next((g for g in process if g.get('image')),None)
+ if selected:
+  page+='<div class="ed-decision"><div class="ed-decision-copy"><span class="micro ed-label">'+e(selected['title'])+'</span>'+paras(selected['paragraphs'])+links(selected.get('links',[]))+'</div>'+media(selected['image'],selected['caption'])+'</div>'
+ for g in process:
+  if g is selected:continue
+  page+=detail(g['title'],group(g))
+ page+='</section>'
+ page+='<section class="ed-system" id="visual-language"><div class="ed-shell ed-section">'+heading(4,'ART DIRECTION / VISUAL SYSTEM','The visual language.')
+ primary=next((g for g in visual if g.get('image')),None)
+ if primary:
+  page+='<div class="ed-system-intro"><div>'+paras(primary['paragraphs'])+'</div><span class="micro">'+e(primary['title'])+'</span></div>'+media(primary['image'],primary['caption'],'ed-screens')
+ else:
+  page+='<div class="ed-system-intro">'+paras(visual[0]['paragraphs'])+'</div>'
+ for g in visual:
+  if g is primary or (not primary and g is visual[0]):continue
+  page+=detail(g['title'],group(g,g is not context))
+ page+='</div></section>'
+ if context:
+  page+='<section class="ed-section ed-shell" id="show-floor">'+heading(5,'THE COMPLETED EXPERIENCE','Design in context.')+media(context['image'],context.get('caption',context['title']),'ed-tangible')+'</section>'
+ page+='<section class="ed-outcomes ed-shell ed-section" id="outcomes">'+heading(6 if context else 5,'DESIGN RATIONALE / TAKEAWAYS','Why the approach works.')+'<div class="ed-outcome-columns">'
+ for n,g in enumerate(why,1):page+='<article><span class="micro">'+f'{n:02d} / DESIGN TAKEAWAY'+'</span><h3>'+e(g['title'])+'</h3>'+paras(g['paragraphs'])+links(g.get('links',[]))+'</article>'
+ page+='</div></section>'
+ nxt=projects[(projects.index(p)+1)%len(projects)]
+ page+='<a class="ed-next ed-shell" href="/work/'+nxt['slug']+'/"><span class="micro">NEXT PROJECT</span><div><h2>'+e(nxt['client'])+'</h2><span class="ed-next-arrow" aria-hidden="true">↗</span></div><span class="micro">'+e(nxt['short'])+'</span></a></main>'+footer()
+ return page
