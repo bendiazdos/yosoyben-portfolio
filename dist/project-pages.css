@@ -1,0 +1,17 @@
+/* Project pages follow the supplied Husky reference. Homepage styles stay separate. */
+:root{--canvas:#fff;--paper:#fff;--ink:#0d1417;--line:#e1e3e1}
+body.project-page{background:#fff;color:#0d1417;font-family:var(--font-mono),ui-monospace,monospace;line-height:1.5}
+.project-page .header{font-family:Arial,Helvetica,sans-serif}
+.project-page .header,.project-page .footer{max-width:1152px;margin-inline:auto}
+.project-page .header{border-bottom:0}
+.project-page .brand img{mix-blend-mode:normal}
+.project-page .nav .contact-link{font-size:13px}
+.project-page main .caret{width:12px;height:12px;vertical-align:middle}
+.project-page main img[role=button]{cursor:zoom-in}
+.project-page .project-cover-placeholder{position:absolute;inset:0}
+.project-page .type-cover{font-family:Arial,Helvetica,sans-serif}
+.project-page .lightbox{background:#fff}
+.project-page .lightbox button{font-family:Arial,Helvetica,sans-serif}
+.project-page .footer{font-family:var(--font-mono),ui-monospace,monospace}
+.project-page .animate-rise{animation:none}
+@media(max-width:560px){.project-page .header{height:82px}.project-page .type-cover .client{font-size:clamp(22px,6vw,43px)}}
