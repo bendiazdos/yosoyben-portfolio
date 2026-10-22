@@ -58,3 +58,11 @@
 @media(prefers-reduced-motion:reduce){.husky-editorial *{scroll-behavior:auto!important}.ed-image img,.ed-enlarge,.ed-plus,.ed-next-arrow{transition:none!important}}
 html:has(body.husky-editorial){scroll-padding-top:0}
 .ed-system{scroll-margin-top:60px}
+/* Shared editorial project system. */
+.ed-index>.ed-shell{grid-template-columns:repeat(var(--ed-count,6),1fr)}
+.editorial-project .ed-title-grid h1{overflow-wrap:normal;font-size:clamp(52px,7.2vw,132px)}
+.editorial-project .ed-decision{margin-bottom:55px}
+.ed-source-links{display:flex;flex-wrap:wrap;gap:18px;margin:24px 0}.ed-source-links a{font-size:9px;border-bottom:1px solid currentColor;padding-bottom:6px}.ed-source-links a:hover{color:var(--accent)}
+.ed-samples{margin-top:30px}.ed-samples>.micro{display:block;margin-bottom:20px}.ed-samples .ed-media+.ed-media{margin-top:30px}.ed-detail-body>.ed-media{max-width:1050px;margin:30px auto 0}
+.ed-system-intro>p{max-width:590px}.editorial-project .ed-system-intro>.micro{align-self:center}
+@media(max-width:760px){.editorial-project .ed-title-grid h1{font-size:clamp(45px,10.5vw,80px)}.editorial-project .ed-decision{margin-bottom:35px}}

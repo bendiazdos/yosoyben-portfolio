@@ -14,3 +14,7 @@ if(editorialIndex){
  function schedule(){if(!pending){pending=true;requestAnimationFrame(updateIndex)}}
  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);updateIndex();
 }
+// Keep existing chapter bookmarks useful after the editorial migration.
+const legacyChapters={'#overview':'challenge','#goals':'challenge','#process':'interaction','#visual-system':'visual-language','#why-it-worked':'outcomes'};
+function followLegacyChapter(){const target=legacyChapters[location.hash];if(target)document.getElementById(target)?.scrollIntoView({behavior:'instant'});}
+addEventListener('hashchange',followLegacyChapter);followLegacyChapter();
