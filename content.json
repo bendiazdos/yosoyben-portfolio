@@ -1,0 +1,830 @@
+{
+  "husky": [
+    [
+      "p",
+      "UX / UI · Graphic Design"
+    ],
+    [
+      "p",
+      "Case study / 01"
+    ],
+    [
+      "p",
+      "Selected work"
+    ],
+    [
+      "p",
+      "Husky Technologies"
+    ],
+    [
+      "h1",
+      "Drinktec Experience."
+    ],
+    [
+      "p",
+      "A full trade show experience designed to turn Husky’s innovation, sustainability, product systems and service model into a connected booth journey."
+    ],
+    [
+      "dd",
+      "Husky Technologies"
+    ],
+    [
+      "dd",
+      "UX / UI Design"
+    ],
+    [
+      "dd",
+      "Art Direction, Visual Design, Experience Flow, Interactive Prototyping"
+    ],
+    [
+      "dd",
+      "Digital experience"
+    ],
+    [
+      "p",
+      "Index"
+    ],
+    [
+      "p",
+      "01"
+    ],
+    [
+      "p",
+      "Section / 01"
+    ],
+    [
+      "h2",
+      "Project"
+    ],
+    [
+      "p",
+      "A full trade show experience designed to turn Husky’s innovation, sustainability, product systems and service model into a connected booth journey — not a collection of disconnected demos."
+    ],
+    [
+      "p",
+      "02"
+    ],
+    [
+      "p",
+      "Section / 02"
+    ],
+    [
+      "h2",
+      "Project Snapshot"
+    ],
+    [
+      "h3",
+      "The Challenge"
+    ],
+    [
+      "p",
+      "Design a full suite of interactive booth experiences on a tight timeline — bringing together live hardware, kiosks, cinematic storytelling and immersive theater moments into one seamless journey. The content was dense: recycling policy, material science, machine performance, and service capability all had to feel premium and understandable in a noisy show-floor environment."
+    ],
+    [
+      "h3",
+      "The Solution"
+    ],
+    [
+      "p",
+      "We built one connected brand experience with several interactive stops — including the HyPET-6e demo, rPET Knowledge Center, Advantage+ Elite Monitoring Center, and the Tooling Transparent Experience — unified by a shared chapter structure, dual-screen interaction model, and reusable UI system."
+    ],
+    [
+      "p",
+      "03"
+    ],
+    [
+      "p",
+      "Section / 03"
+    ],
+    [
+      "h2",
+      "Goals"
+    ],
+    [
+      "p",
+      "Make Husky feel modern, premium and memorable"
+    ],
+    [
+      "p",
+      "Give visitors a clear path through the booth"
+    ],
+    [
+      "p",
+      "Turn technical information into engaging stories"
+    ],
+    [
+      "p",
+      "Let multiple conversations happen at once"
+    ],
+    [
+      "p",
+      "Connect the physical products to the digital experience"
+    ],
+    [
+      "p",
+      "Make sustainability and performance easier to understand"
+    ],
+    [
+      "p",
+      "04"
+    ],
+    [
+      "p",
+      "Section / 04"
+    ],
+    [
+      "h2",
+      "Process / Experience Structure"
+    ],
+    [
+      "h3",
+      "Early Experience Sketches"
+    ],
+    [
+      "p",
+      "We started by sketching the booth as a journey, not a deck. Early wireframes mapped kiosk flow, chapter structure, tap interactions, motion cues, and how each touchscreen stop could talk to the larger booth environment — so sales conversations and self-guided exploration could coexist."
+    ],
+    [
+      "h3",
+      "Dual-Screen Interaction Model"
+    ],
+    [
+      "p",
+      "A consistent dual-screen pattern kept complex content usable on the floor: the upper display carried cinematic visuals and data moments, while the lower touch surface handled navigation, selection, and controls. Flows for geographic zoom, product carousels, video chapters, side-by-side comparison, and factory planning all followed the same hierarchy — reducing learning cost as visitors moved between stops."
+    ],
+    [
+      "h3",
+      "Screen Flow + Prototype Structure"
+    ],
+    [
+      "p",
+      "Each chapter was prototyped as a paced screen flow so the team could review transitions, content hierarchy, and dwell time before production. That structure made dense topics — advocacy, global rPET adoption, life of rPET, selection, comparison, and best practices — feel like a guided story instead of a data dump."
+    ],
+    [
+      "h3",
+      "UI Component System"
+    ],
+    [
+      "p",
+      "A reusable component library kept every chapter visually and interactively consistent: chapter menus, media players, data cards, gauges, round CTAs, carousels, countdown states, icons, and status indicators. Building the system first meant new content could ship faster without breaking the HUD language that made the experience feel cohesive across the booth."
+    ],
+    [
+      "p",
+      "05"
+    ],
+    [
+      "p",
+      "Section / 05"
+    ],
+    [
+      "h2",
+      "Art Direction / Visual System"
+    ],
+    [
+      "p",
+      "The visual system borrowed from industrial command interfaces — dark surfaces, precise framing, hazard-stripe accents, and high-contrast yellow/cyan highlights — so sustainability and machine performance felt tangible, technical, and premium on a busy show floor."
+    ],
+    [
+      "h3",
+      "Chapter storytelling"
+    ],
+    [
+      "p",
+      "Chapter intros, lifecycle sequences, comparison layouts, and real-world results screens translated specialist content into scannable moments. Photography, motion, and data visualization were paired so visitors could grasp the story quickly, then go deeper when a conversation started."
+    ],
+    [
+      "h3",
+      "Physical-to-digital continuity"
+    ],
+    [
+      "p",
+      "Interaction design extended beyond glass. Tangible cues — place, rotate, select — linked physical product moments to on-screen storytelling, reinforcing Husky’s message of sustainability without compromise in a way visitors could feel as well as see."
+    ],
+    [
+      "p",
+      "06"
+    ],
+    [
+      "p",
+      "Section / 06"
+    ],
+    [
+      "h2",
+      "Why It Worked"
+    ],
+    [
+      "p",
+      "The experience succeeded because process and system design came before polish: a clear visitor path, a shared interaction model, and a componentized UI made complex industrial storytelling feel intuitive under show-floor pressure."
+    ],
+    [
+      "h3",
+      "What visitors could do"
+    ],
+    [
+      "p",
+      "Explore global policy and adoption data, follow the life of rPET, compare material pathways, review best practices, and move between cinematic upper displays and hands-on controls without relearning the interface at every stop."
+    ],
+    [
+      "h3",
+      "What the system unlocked"
+    ],
+    [
+      "p",
+      "Sales teams could run parallel conversations. Content teams could extend chapters without redesigning the interface. And the brand presentation stayed consistent from LED canopy moments to kiosk-level detail — turning a dense product story into a memorable booth journey."
+    ],
+    [
+      "p",
+      "Final experience"
+    ],
+    [
+      "p",
+      "A selected frame from the completed experience, bringing the project's strategy, interaction, and visual direction together."
+    ],
+    [
+      "p",
+      "Next project / 02"
+    ],
+    [
+      "p",
+      "Lockheed Martin"
+    ],
+    [
+      "h2",
+      "Product Visualizer."
+    ],
+    [
+      "p",
+      "© 2026 Ben Diaz"
+    ]
+  ],
+  "lockheed-martin": [
+    [
+      "p",
+      "UX / UI · Graphic Design"
+    ],
+    [
+      "p",
+      "Case study / 02"
+    ],
+    [
+      "p",
+      "Selected work"
+    ],
+    [
+      "p",
+      "Lockheed Martin"
+    ],
+    [
+      "h1",
+      "Product Visualizer."
+    ],
+    [
+      "p",
+      "An interactive product visualizer experience designed to communicate advanced systems and capabilities in adverse environments."
+    ],
+    [
+      "dd",
+      "Lockheed Martin"
+    ],
+    [
+      "dd",
+      "UX / UI Design"
+    ],
+    [
+      "dd",
+      "Visual Design, Interactive Prototyping"
+    ],
+    [
+      "dd",
+      "Digital experience"
+    ],
+    [
+      "p",
+      "Index"
+    ],
+    [
+      "p",
+      "01"
+    ],
+    [
+      "p",
+      "Section / 01"
+    ],
+    [
+      "h2",
+      "Project"
+    ],
+    [
+      "p",
+      "An interactive product visualizer that helps audiences understand Lockheed Martin systems through immersive, guided storytelling."
+    ],
+    [
+      "p",
+      "02"
+    ],
+    [
+      "p",
+      "Section / 02"
+    ],
+    [
+      "h2",
+      "Focus"
+    ],
+    [
+      "h3",
+      "The Challenge"
+    ],
+    [
+      "p",
+      "Translate complex defense and aerospace capabilities into a clear, engaging interactive experience without losing technical credibility."
+    ],
+    [
+      "h3",
+      "The Approach"
+    ],
+    [
+      "p",
+      "Structured the experience around visual clarity, guided exploration, and high-impact product moments that support live demos and conversations."
+    ],
+    [
+      "p",
+      "Final experience"
+    ],
+    [
+      "p",
+      "A selected frame from the completed experience, bringing the project's strategy, interaction, and visual direction together."
+    ],
+    [
+      "p",
+      "Next project / 03"
+    ],
+    [
+      "p",
+      "Mattermost"
+    ],
+    [
+      "h2",
+      "Communication Platform."
+    ],
+    [
+      "p",
+      "© 2026 Ben Diaz"
+    ]
+  ],
+  "mattermost": [
+    [
+      "p",
+      "UX / UI · Graphic Design"
+    ],
+    [
+      "p",
+      "Case study / 03"
+    ],
+    [
+      "p",
+      "Selected work"
+    ],
+    [
+      "p",
+      "Mattermost"
+    ],
+    [
+      "h1",
+      "Communication Platform."
+    ],
+    [
+      "p",
+      "Product and experience design for a modern team communication platform — clarity, hierarchy, and collaboration at scale."
+    ],
+    [
+      "dd",
+      "Mattermost"
+    ],
+    [
+      "dd",
+      "UX / UI Design"
+    ],
+    [
+      "dd",
+      "Product Design"
+    ],
+    [
+      "dd",
+      "Digital experience"
+    ],
+    [
+      "p",
+      "Index"
+    ],
+    [
+      "p",
+      "01"
+    ],
+    [
+      "p",
+      "Section / 01"
+    ],
+    [
+      "h2",
+      "Project"
+    ],
+    [
+      "p",
+      "Design work supporting Mattermost’s communication platform — improving clarity, flow, and the feel of everyday collaboration."
+    ],
+    [
+      "p",
+      "02"
+    ],
+    [
+      "p",
+      "Section / 02"
+    ],
+    [
+      "h2",
+      "Focus"
+    ],
+    [
+      "h3",
+      "The Challenge"
+    ],
+    [
+      "p",
+      "Keep a powerful collaboration product approachable while supporting complex team workflows."
+    ],
+    [
+      "h3",
+      "The Approach"
+    ],
+    [
+      "p",
+      "Prioritized information hierarchy, interaction clarity, and a visual system that feels trustworthy for technical teams."
+    ],
+    [
+      "p",
+      "Final experience"
+    ],
+    [
+      "p",
+      "A selected frame from the completed experience, bringing the project's strategy, interaction, and visual direction together."
+    ],
+    [
+      "p",
+      "Next project / 04"
+    ],
+    [
+      "p",
+      "Leidos — CLD"
+    ],
+    [
+      "h2",
+      "Website."
+    ],
+    [
+      "p",
+      "© 2026 Ben Diaz"
+    ]
+  ],
+  "leidos-cld": [
+    [
+      "p",
+      "UX / UI · Graphic Design"
+    ],
+    [
+      "p",
+      "Case study / 04"
+    ],
+    [
+      "p",
+      "Selected work"
+    ],
+    [
+      "p",
+      "Leidos — CLD"
+    ],
+    [
+      "h1",
+      "Website."
+    ],
+    [
+      "p",
+      "Website experience design for Leidos CLD — structured storytelling for a complex offerings landscape."
+    ],
+    [
+      "dd",
+      "Leidos — CLD"
+    ],
+    [
+      "dd",
+      "UX / UI Design"
+    ],
+    [
+      "dd",
+      "Visual Design, Art Direction"
+    ],
+    [
+      "dd",
+      "Digital experience"
+    ],
+    [
+      "p",
+      "Index"
+    ],
+    [
+      "p",
+      "01"
+    ],
+    [
+      "p",
+      "Section / 01"
+    ],
+    [
+      "h2",
+      "Project"
+    ],
+    [
+      "p",
+      "A website experience that organizes Leidos CLD offerings into a clear, credible digital story."
+    ],
+    [
+      "p",
+      "02"
+    ],
+    [
+      "p",
+      "Section / 02"
+    ],
+    [
+      "h2",
+      "Focus"
+    ],
+    [
+      "h3",
+      "The Challenge"
+    ],
+    [
+      "p",
+      "Make a dense set of capabilities feel navigable and human without flattening the technical depth."
+    ],
+    [
+      "h3",
+      "The Approach"
+    ],
+    [
+      "p",
+      "Built a modular page system with strong hierarchy, purposeful imagery, and clear entry points into deeper content."
+    ],
+    [
+      "p",
+      "Final experience"
+    ],
+    [
+      "p",
+      "A selected frame from the completed experience, bringing the project's strategy, interaction, and visual direction together."
+    ],
+    [
+      "p",
+      "Next project / 05"
+    ],
+    [
+      "p",
+      "Zales"
+    ],
+    [
+      "h2",
+      "WebXR."
+    ],
+    [
+      "p",
+      "© 2026 Ben Diaz"
+    ]
+  ],
+  "zales": [
+    [
+      "p",
+      "UX / UI · Graphic Design"
+    ],
+    [
+      "p",
+      "Case study / 05"
+    ],
+    [
+      "p",
+      "Selected work"
+    ],
+    [
+      "p",
+      "Zales"
+    ],
+    [
+      "h1",
+      "WebXR."
+    ],
+    [
+      "p",
+      "Immersive WebXR experience design bringing jewelry discovery into an interactive digital space."
+    ],
+    [
+      "dd",
+      "Zales"
+    ],
+    [
+      "dd",
+      "UX / UI Design"
+    ],
+    [
+      "dd",
+      "Experience Design, Visual Design"
+    ],
+    [
+      "dd",
+      "Digital experience"
+    ],
+    [
+      "p",
+      "Index"
+    ],
+    [
+      "p",
+      "01"
+    ],
+    [
+      "p",
+      "Section / 01"
+    ],
+    [
+      "h2",
+      "Project"
+    ],
+    [
+      "p",
+      "A WebXR experience that lets shoppers explore jewelry in a more immersive, spatial way."
+    ],
+    [
+      "p",
+      "02"
+    ],
+    [
+      "p",
+      "Section / 02"
+    ],
+    [
+      "h2",
+      "Focus"
+    ],
+    [
+      "h3",
+      "The Challenge"
+    ],
+    [
+      "p",
+      "Bridge ecommerce discovery with immersive interaction while keeping the experience fast and emotional."
+    ],
+    [
+      "h3",
+      "The Approach"
+    ],
+    [
+      "p",
+      "Designed flows and interfaces that support spatial browsing without burying the product story."
+    ],
+    [
+      "p",
+      "Final experience"
+    ],
+    [
+      "p",
+      "A selected frame from the completed experience, bringing the project's strategy, interaction, and visual direction together."
+    ],
+    [
+      "p",
+      "Next project / 06"
+    ],
+    [
+      "p",
+      "Leidos"
+    ],
+    [
+      "h2",
+      "Animation."
+    ],
+    [
+      "p",
+      "© 2026 Ben Diaz"
+    ]
+  ],
+  "leidos-animation": [
+    [
+      "p",
+      "UX / UI · Graphic Design"
+    ],
+    [
+      "p",
+      "Case study / 06"
+    ],
+    [
+      "p",
+      "Selected work"
+    ],
+    [
+      "p",
+      "Leidos"
+    ],
+    [
+      "h1",
+      "Animation."
+    ],
+    [
+      "p",
+      "Motion and animation work supporting Leidos brand storytelling across digital touchpoints."
+    ],
+    [
+      "dd",
+      "Leidos"
+    ],
+    [
+      "dd",
+      "Motion Design"
+    ],
+    [
+      "dd",
+      "Art Direction, Visual Design"
+    ],
+    [
+      "dd",
+      "Digital experience"
+    ],
+    [
+      "p",
+      "Index"
+    ],
+    [
+      "p",
+      "01"
+    ],
+    [
+      "p",
+      "Section / 01"
+    ],
+    [
+      "h2",
+      "Project"
+    ],
+    [
+      "p",
+      "Animation and motion design that help Leidos communicate complex ideas with energy and clarity."
+    ],
+    [
+      "p",
+      "02"
+    ],
+    [
+      "p",
+      "Section / 02"
+    ],
+    [
+      "h2",
+      "Focus"
+    ],
+    [
+      "h3",
+      "The Challenge"
+    ],
+    [
+      "p",
+      "Use motion to clarify — not decorate — technical and brand narratives."
+    ],
+    [
+      "h3",
+      "The Approach"
+    ],
+    [
+      "p",
+      "Crafted paced sequences and visual systems that support storytelling across screens and presentations."
+    ],
+    [
+      "p",
+      "Final experience"
+    ],
+    [
+      "p",
+      "A selected frame from the completed experience, bringing the project's strategy, interaction, and visual direction together."
+    ],
+    [
+      "p",
+      "Next project / 01"
+    ],
+    [
+      "p",
+      "Husky Technologies"
+    ],
+    [
+      "h2",
+      "Drinktec Experience."
+    ],
+    [
+      "p",
+      "© 2026 Ben Diaz"
+    ]
+  ]
+}

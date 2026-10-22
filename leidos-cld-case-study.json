@@ -1,0 +1,125 @@
+{
+  "challenge": "Leidos CLD needed a digital experience for exploring its space capabilities. My UI/UX task was to give that content a clear structure while making the journey feel engaging, especially through the scrolling interaction in Logistics.",
+  "solution": "A space-themed experience combines topic navigation, staged content, media, and deeper information. The Logistics section uses scrolling to move through the story, with persistent navigation and section controls helping visitors stay oriented.",
+  "role": "UI/UX, Figma wireframes and styleframes, interaction design, and collaboration with developers. A particular focus—and one of my favorite parts of the project—was the scrolling feature in the Logistics section.",
+  "goals": [
+    "Give visitors clear paths into space capabilities.",
+    "Make scrolling part of the Logistics story.",
+    "Keep navigation visible during immersive moments.",
+    "Balance atmosphere with readable information.",
+    "Let visitors reveal details when they want them.",
+    "Connect interface design with motion and development."
+  ],
+  "process": [
+    {
+      "title": "Experience Structure / Finding A Way In",
+      "paragraphs": [
+        "My UI/UX role covered how visitors enter the content and find their way through it. The delivered navigation groups the experience into Home, LEO, Lunar, Space Systems, and Videos.",
+        "Within LEO, Logistics sits alongside Engineering, Science, and Operations. That hierarchy gives the experience a broad set of entry points before a visitor moves into a more focused story."
+      ],
+      "image": "leidos-space-overview.png",
+      "caption": "Space Solutions / delivered overview"
+    },
+    {
+      "title": "Wireframes / Navigation And Flow",
+      "paragraphs": [
+        "The wireframe stage of my design work addressed the structural side of the experience: content hierarchy, navigation, and the relationship between an overview and a deeper section.",
+        "For a scrolling experience, those decisions also involve what appears together and where a visitor can move next. The sample gallery below is reserved for original wireframe exports."
+      ],
+      "gallery": {
+        "title": "Selected Wireframes",
+        "empty": "Wireframe samples coming soon.",
+        "samples": []
+      }
+    },
+    {
+      "title": "Styleframes / Atmosphere And Hierarchy",
+      "paragraphs": [
+        "I also created styleframes as part of the UI/UX work. The delivered experience places white typography and Leidos branding over a dark space environment, with purple, blue, and teal accents.",
+        "The visual design needs to support two kinds of attention: exploring the environment and reading the information. Clear headings and controlled text areas give the content a place within that larger scene."
+      ],
+      "gallery": {
+        "title": "Selected Styleframes",
+        "empty": "Styleframe samples coming soon.",
+        "samples": []
+      }
+    },
+    {
+      "title": "Logistics / Designing The Scroll",
+      "paragraphs": [
+        "The Logistics scrolling feature was the part I especially enjoyed. It turns movement through the page into a progression through the subject, rather than presenting everything as one long block of information.",
+        "The introduction establishes the topic inside a large circular frame. Further into the section, media and expandable question cards provide different levels of detail. The top navigation stays present, and up/down controls provide another visible way to move between sections.",
+        "The UI/UX design question was how to make that progression feel connected while still giving visitors control over what they explore."
+      ],
+      "image": "leidos-logistics-intro.png",
+      "caption": "Logistics introduction / image supplied by Ben Diaz",
+      "gallery": {
+        "title": "Logistics / Selected Delivered Views",
+        "samples": [
+          {
+            "image": "leidos-logistics-intro.png",
+            "caption": "01 / Introduce the subject"
+          },
+          {
+            "image": "leidos-logistics-detail.png",
+            "caption": "02 / Reveal deeper information"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Interaction / Collaboration With Developers",
+      "paragraphs": [
+        "My role connected the interface design with the developers building the experience. In Logistics, that collaboration centered on how navigation, content, and scrolling work together.",
+        "The resulting experience lets visitors move between overview content and more focused moments while retaining a consistent visual environment."
+      ]
+    }
+  ],
+  "visual": [
+    {
+      "title": "Space As A Shared Visual Context",
+      "paragraphs": [
+        "A star field, Earth imagery, and translucent polygon shapes establish the environment. White text and branding provide contrast, while colored accents mark controls and selected areas."
+      ],
+      "image": "leidos-space-overview.png",
+      "caption": "Delivered interface / navigation, brand, and space environment"
+    },
+    {
+      "title": "Logistics / Room For The Message",
+      "paragraphs": [
+        "The Logistics introduction gives the subject a prominent heading and places a short piece of copy near the center of the circular composition. The surrounding environment carries the atmosphere while the text introduces the content."
+      ],
+      "image": "leidos-logistics-intro.png",
+      "caption": "Delivered Logistics introduction / circular composition"
+    },
+    {
+      "title": "Deeper Content / Reveal On Demand",
+      "paragraphs": [
+        "The later Logistics view presents questions around Earth. Opening a card reveals supporting copy and a further action, keeping the surrounding scene visible.",
+        "This offers a different pace from the introductory view: visitors can pause on a specific question and choose how much detail to explore."
+      ],
+      "image": "leidos-logistics-detail.png",
+      "caption": "Delivered Logistics detail / expanded question card"
+    }
+  ],
+  "why": [
+    {
+      "title": "Scrolling With A Purpose",
+      "paragraphs": [
+        "The strongest part of the design is the connection between navigation and storytelling. In Logistics, scrolling is a way to progress through the content, while the persistent controls maintain a sense of place.",
+        "That is the interaction rationale behind the feature I enjoyed most: movement supports the story rather than sitting apart from it."
+      ],
+      "image": "leidos-logistics-intro.png",
+      "caption": "The Logistics scrolling experience"
+    },
+    {
+      "title": "Structure Alongside Exploration",
+      "paragraphs": [
+        "The top-level navigation provides a direct route into a topic. Within the topic, staged views and expandable details allow a more exploratory pace.",
+        "My contribution brings those two needs together through UI/UX, wireframes, styleframes, interaction design, and collaboration with developers."
+      ],
+      "image": "leidos-space-overview.png",
+      "caption": "Topic navigation in the Leidos space experience"
+    }
+  ]
+}

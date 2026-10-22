@@ -1,0 +1,107 @@
+{
+  "challenge": "Lockheed Martin needed to present Sentinel A4 at AUSA through an exhibit that made its capabilities tangible. My UI/UX challenge spanned two surfaces: an interactive touchscreen and a much larger LED display.",
+  "solution": "A paired-screen experience gives visitors a hands-on interface alongside a shared visual story. I designed the touchscreen experience and worked out what belonged on the LED screen, in collaboration with the development team.",
+  "role": "UI/UX, wireframes, styleframes, and interactive experience creation with the developers at The Virtual Wild. My scope included both the touchscreen interface and the content approach for the larger LED screen.",
+  "goals": [
+    "Give the touchscreen and LED display distinct purposes.",
+    "Make hands-on exploration easy to follow.",
+    "Prioritize a readable story on the larger screen.",
+    "Connect the two surfaces through a shared design language.",
+    "Balance individual interaction with a shared presentation.",
+    "Carry the UI/UX design into development collaboratively."
+  ],
+  "process": [
+    {
+      "title": "Two Screens / One Experience",
+      "paragraphs": [
+        "The first design problem was deciding what each surface needed to do. A touchscreen is operated at close range; the LED display is viewed by people around the booth. My responsibility covered both, so the experience needed to make sense at these two scales.",
+        "The exhibit pairs an interactive kiosk with a 15 × 7-foot LED screen. The photographs show how the product and its content occupy the physical space."
+      ],
+      "image": "lockheed-screen-roles.webp",
+      "caption": "Touchscreen and LED display / published exhibit photograph"
+    },
+    {
+      "title": "Wireframes / Touchscreen Structure",
+      "paragraphs": [
+        "The touchscreen side of my UI/UX work focused on the visitor’s path through the experience: how to explore, understand the current view, and move between pieces of content.",
+        "That design problem calls for clear choices and visible controls close to the point of interaction. The wireframe sample gallery below is reserved for original design artifacts."
+      ],
+      "gallery": {
+        "title": "Selected Wireframes",
+        "empty": "Wireframe samples coming soon.",
+        "samples": []
+      }
+    },
+    {
+      "title": "Styleframes / LED Content Direction",
+      "paragraphs": [
+        "I also had to determine what the larger LED screen should show. This introduced a different design question: which content communicates well at a distance, and which detail belongs with the person using the touchscreen?",
+        "The styleframe stage connects those decisions to composition and hierarchy. It is a way to consider the large display as part of the experience, alongside the interface being touched."
+      ],
+      "gallery": {
+        "title": "Selected Styleframes",
+        "empty": "Styleframe samples coming soon.",
+        "samples": []
+      }
+    },
+    {
+      "title": "Interaction / Developer Collaboration",
+      "paragraphs": [
+        "As on Mattermost, my role combined UI/UX with creating the interactive experience alongside developers, including work with Rive. For this exhibit, that collaboration also had to account for the touchscreen and larger display as a pair.",
+        "The key handoff question was how the designed interaction and screen content would read together in the installed experience."
+      ],
+      "image": "lockheed-exhibit.webp",
+      "caption": "The installed experience / photograph from The Virtual Wild"
+    }
+  ],
+  "visual": [
+    {
+      "title": "Touchscreen / Controls Within Reach",
+      "paragraphs": [
+        "The published kiosk photograph shows numbered comparison points, an active selection, and an Exit control. These sit beneath the product view and explanatory copy, establishing a visible relationship between navigation and content."
+      ],
+      "image": "lockheed-touchscreen.webp",
+      "caption": "Touchscreen comparison view / published exhibit photograph"
+    },
+    {
+      "title": "LED / A Shared View",
+      "paragraphs": [
+        "The LED photograph combines a large product view with a capability heading and supporting text. The screen provides a shared visual focus while the kiosk gives a visitor a surface to operate."
+      ],
+      "image": "lockheed-exhibit.webp",
+      "caption": "Large-format product storytelling on the LED display"
+    },
+    {
+      "title": "Consistency Across Scale",
+      "paragraphs": [
+        "My design task was to connect the two surfaces without treating their layouts as interchangeable. The same experience has to accommodate a person reaching toward a control and an audience looking toward the larger display.",
+        "That distinction gives the visual system its purpose: consistent orientation, with content priorities suited to each screen."
+      ]
+    }
+  ],
+  "why": [
+    {
+      "title": "A Clear Division Of Roles",
+      "paragraphs": [
+        "The two-screen approach makes the UI/UX problem concrete: one surface supports direct interaction, while the other supports shared viewing. Treating both as part of the design scope lets the interface and larger presentation be considered together."
+      ],
+      "image": "lockheed-screen-roles.webp",
+      "caption": "Touchscreen interaction and shared LED presentation"
+    },
+    {
+      "title": "Designed For The Exhibit",
+      "paragraphs": [
+        "This project extended my role beyond a single interface. I had to consider where a visitor interacts, where the wider audience looks, and how those experiences connect.",
+        "The Virtual Wild’s case study documents the installed exhibit and its reported results."
+      ],
+      "links": [
+        [
+          "THE VIRTUAL WILD / PROJECT",
+          "https://www.thevirtualwild.com/projects/lockheed-martin"
+        ]
+      ],
+      "image": "lockheed-exhibit.webp",
+      "caption": "The installed Lockheed Martin exhibit"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "challenge": "Mattermost’s value is in coordinated work, not a single screen. The brief was to make a complex communication platform understandable through an interactive web experience, without losing its technical credibility.",
+  "solution": "A guided, scenario-based demonstration connects a situation, a task, and a product action. I designed the UI/UX and used Rive to create the experience in collaboration with the development team.",
+  "role": "My contribution covered UI/UX, Figma wireframes and styleframes, and creating the experience with Rive alongside the developers at The Virtual Wild.",
+  "goals": [
+    "Give visitors a clear choice between three operational scenarios.",
+    "Explain the mission before asking users to act.",
+    "Make the next product action easy to identify.",
+    "Keep scenario context and progress visible.",
+    "Use motion to support the interactive experience.",
+    "Connect the Figma design work with Rive and development."
+  ],
+  "process": [
+    {
+      "title": "Wireframes / Experience Structure",
+      "paragraphs": [
+        "My UI/UX work included wireframes in Figma. This was the structural part of the process: organizing the experience before the visual treatment.",
+        "In the delivered site, the journey starts with three choices: Mission Ops, Cyber Ops, and Dev Sec Ops. Each card pairs a scenario name with a concrete situation and a Launch action."
+      ],
+      "links": [],
+      "gallery": {
+        "title": "Selected Wireframes",
+        "empty": "Wireframe samples coming soon.",
+        "samples": []
+      }
+    },
+    {
+      "title": "Styleframes / Interface Direction",
+      "paragraphs": [
+        "I also developed styleframes in Figma to document the visual design stage of my UI/UX work.",
+        "The final interface pairs a white Mattermost header with a dark operational environment. Numbered scenario labels, framed panels, and bright action cues give the experience a distinct visual hierarchy."
+      ],
+      "links": [],
+      "gallery": {
+        "title": "Selected Styleframes",
+        "empty": "Styleframe samples coming soon.",
+        "samples": []
+      }
+    },
+    {
+      "title": "Briefing / From Context To Action",
+      "paragraphs": [
+        "The Cyber Ops scenario opens with a mission brief: restore trusted communications and operational control. A short task list previews the work, including activating a breach playbook, initiating a bridge call, sending email, and sharing findings.",
+        "The briefing separates the purpose of the mission from its individual actions. A control clock and progress display establish the scenario’s status alongside that context."
+      ],
+      "image": "mattermost-mission-brief.png",
+      "caption": "Cyber Ops mission brief and primary tasks"
+    },
+    {
+      "title": "Rive / Collaboration With Developers",
+      "paragraphs": [
+        "I used Rive to create this experience with the developers on the team. It was a collaborative part of delivering the interaction, alongside the UI/UX and Figma work.",
+        "The delivered flow combines animated transitions, guidance panels, highlighted actions, and product UI. One onboarding step explains the guidance panel; another tells visitors to follow the highlighted areas to continue the story."
+      ],
+      "image": "mattermost-guidance.png",
+      "caption": "Guidance layered into the interactive scenario",
+      "links": [
+        [
+          "EXPLORE THE EXPERIENCE",
+          "https://mattermost-sizzle-dev.onrender.com/"
+        ]
+      ]
+    }
+  ],
+  "visual": [
+    {
+      "title": "An Operational Frame",
+      "paragraphs": [
+        "Dark blue panels and translucent framing sit over an animated technical background. Large scenario numbers and uppercase labels establish context before the smaller interface details. The white header provides a consistent brand anchor."
+      ],
+      "image": "mattermost-scenarios.png",
+      "caption": "Scenario selection / delivered interface"
+    },
+    {
+      "title": "A Clear Action Layer",
+      "paragraphs": [
+        "In Cyber Ops, yellow prompts and highlighted controls distinguish the next action from the surrounding product UI. Blue tutorial panels explain how the guidance works. The design separates instructions, status, and the product demonstration into recognizable layers."
+      ],
+      "image": "mattermost-cyber-workflow.png",
+      "caption": "Acknowledge the alert / guided product interaction"
+    },
+    {
+      "title": "Persistent Orientation",
+      "paragraphs": [
+        "The scenario name remains on the left, while the clock and progress indicator remain on the right. Exit Mission, sound controls, and directional arrows give the experience a visible control layer around the central task."
+      ]
+    }
+  ],
+  "why": [
+    {
+      "title": "A Concrete Way Into The Product",
+      "paragraphs": [
+        "A visitor can choose a situation rather than start with an abstract feature list. The brief supplies context; the prompt identifies an action; the product interface shows where it happens. That sequence is the central design rationale."
+      ],
+      "links": [
+        [
+          "OPEN FINAL EXPERIENCE",
+          "https://mattermost-sizzle-dev.onrender.com/"
+        ]
+      ],
+      "image": "mattermost-scenarios.png",
+      "caption": "Scenario selection in the Mattermost experience"
+    },
+    {
+      "title": "Structure And Motion Working Together",
+      "paragraphs": [
+        "My contribution connects UI/UX structure, Figma design artifacts, and Rive work with the development team. The final experience brings those disciplines together in a guided walkthrough.",
+        "The live experience brings the design and interaction together, from the scenario menu to the guided product walkthrough."
+      ],
+      "links": [
+        [
+          "THE VIRTUAL WILD / PROJECT",
+          "https://www.thevirtualwild.com/projects/communication-platform"
+        ]
+      ],
+      "image": "mattermost-guidance.png",
+      "caption": "Guided interaction in the Mattermost product walkthrough"
+    }
+  ],
+  "overview_links": [
+    [
+      "EXPLORE THE EXPERIENCE",
+      "https://mattermost-sizzle-dev.onrender.com/"
+    ]
+  ]
+}
