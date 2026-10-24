@@ -18,10 +18,16 @@ def icon(direction='right'):
 def header(active=''):
  links=''.join(f'<a href="/{url}/" '+('aria-current="page"' if active==url else '')+f'>{label}</a>' for i,(url,label) in enumerate([('work','Work'),('about','About'),('connect','Connect')]))
  return f'<a class="skip" href="#main">Skip to content</a><header class="site-header" id="top"><a class="brand" href="/" aria-label="Ben Diaz home"><img src="/assets/brand-diaz-logo.png" alt="Diaz" width="62" height="43"></a><span class="header-meta micro">DESIGNER &amp; THEN EVERYTHING ELSE</span><nav aria-label="Main navigation">{links}</nav></header>'
-def footer():
+def footer(compact=False):
+ if compact:return '<footer class="site-footer micro"><span>© 2026 BEN DIAZ</span></footer></body></html>'
  return '<footer class="site-footer micro"><span>© 2026 BEN DIAZ</span><span>MIDWEST BORN &amp; BRED</span><a href="#top">BACK TO TOP '+icon('up')+'</a></footer><dialog class="lightbox" aria-label="Enlarged project image"><button class="text-button" type="button">CLOSE ×</button><img alt=""></dialog></body></html>'
 def head(title,desc,cls=''):
- return f'<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#eeeeec"><title>{e(title)} — Ben Diaz</title><meta name="description" content="{e(desc)}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="preload" href="/assets/fonts/8d5b983ea6503b7d-s.p.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css?v={asset_css}"><script defer src="/script.js?v={asset_js}"></script></head><body class="{cls}">'
+ bridge=''
+ if any(name in cls.split() for name in ['home-editorial','husky-editorial']):
+  cv=hashlib.sha256((OUT/'project-transition.css').read_bytes()).hexdigest()[:10]
+  jv=hashlib.sha256((OUT/'project-transition.js').read_bytes()).hexdigest()[:10]
+  bridge=f'<link rel="stylesheet" href="/project-transition.css?v={cv}"><script defer src="/project-transition.js?v={jv}"></script>'
+ return f'<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#eeeeec"><title>{e(title)} — Ben Diaz</title><meta name="description" content="{e(desc)}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="preload" href="/assets/fonts/8d5b983ea6503b7d-s.p.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css?v={asset_css}"><script defer src="/script.js?v={asset_js}"></script>{bridge}</head><body class="{cls}">'
 def save(path,html):
  dest=OUT/path;dest.parent.mkdir(exist_ok=True,parents=True);dest.write_text(html)
 def link(text,url,cls=''):
@@ -32,13 +38,14 @@ def cover(p,lazy=True):
  typ={'lockheed-martin':('SYSTEM / 02','PRODUCT<br>VISUALIZER','orbit'),'mattermost':('PLATFORM / 03','TEAM<br>CONNECTION','network'),'leidos-cld':('DIGITAL / 04','INFORMATION<br>IN FOCUS','structure')}
  tag,title,kind=typ[p['slug']]
  return f'<div class="type-cover {kind}" role="img" aria-label="{e(p["client"])} typographic project cover"><span class="micro">{tag}</span><div class="cover-art" aria-hidden="true"><i></i><i></i><i></i><i></i></div><strong>{title}</strong><span class="micro">{e(p["client"])} / {e(p["short"])}</span></div>'
-landing=head('Design, in its element','Ben Diaz. UX/UI and experience design across interfaces, immersive spaces, and motion.','landing-page')+header()+'''<main class="landing" id="main"><div class="landing-top micro"><span>PORTFOLIO / BEN DIAZ</span></div><div class="landing-stage"><h1 class="landing-name">BEN<br>DIAZ<span class="registration">[BD]</span></h1><div class="visual-stage"><canvas id="core-canvas" role="img" aria-label="An interactive rotating monochrome sculptural knot"></canvas><div class="visual-bracket tl"></div><div class="visual-bracket tr"></div><div class="visual-bracket bl"></div><div class="visual-bracket br"></div><div class="visual-tag micro">FORM STUDY / 001<br>EXPLORING CONNECTION</div><button class="motion-toggle micro" type="button" aria-pressed="false">PAUSE MOTION</button></div><div class="landing-side micro"><span>UX / UI</span><span>INTERACTION</span><span>IMMERSIVE</span><span>MOTION</span></div></div><div class="landing-bottom"><div><p>Interfaces. Experiences.<br>A different way in.</p></div><div class="landing-enter">'''+link('ENTER WORK','/work/','dark')+'''</div></div></main>'''+footer()
+from homepage_editorial import render_home
+landing=render_home(projects,head,header,footer)
 save(Path('index.html'),landing)
 # Two-column work index; project artwork appears behind the focused link.
-work=head('Selected work','Six selected projects in UX/UI, product, immersive experience, and motion design.','work-page')+header('work')+'''<main id="main" class="page-shell"><div class="page-kicker micro"><a class="home-link" href="/">'''+icon('left')+''' HOME LANDING</a></div><div class="page-heading"><h1>Selected<br>Work<span class="title-mark">[06]</span></h1></div><section class="work-grid" aria-label="Selected projects">'''
+work=head('All Projects','Six selected projects in UX/UI, product, immersive experience, and motion design.','work-page')+header('work')+'''<main id="main" class="page-shell"><div class="page-kicker micro"><a class="home-link" href="/">'''+icon('left')+''' HOME LANDING</a></div><div class="page-heading"><h1>All<br>Projects<span class="title-mark">[06]</span></h1></div><section class="work-grid" aria-label="All projects">'''
 for i,p in enumerate(projects):
  work+=f'<a class="work-card" href="/work/{p["slug"]}/"><div class="work-card-cover" aria-hidden="true">{cover(p,False)}<span class="work-print-caption micro"><span>{e(p["client"])}</span><span>FILE / 0{i+1}</span></span></div><span class="work-card-number micro">0{i+1}</span><div class="work-card-copy"><h2>{e(p["client"])}</h2><span class="micro">{e(p["short"])}</span></div><span class="work-card-type micro">{e(p["kind"])}</span>{icon()}</a>'
-work+='</section><div class="archive-foot micro"><a href="/about/">MEET THE DESIGNER '+icon()+'</a></div></main>'+footer()
+work+='</section><div class="archive-foot micro"><a href="/about/">MEET THE DESIGNER '+icon()+'</a></div></main>'+footer(compact=True)
 save(Path('work/index.html'),work)
 # Reuse the supplied case-study copy without inventing research, metrics, or outcomes.
 def original_sections(slug):
