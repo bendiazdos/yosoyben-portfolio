@@ -1,0 +1,11 @@
+/* Cross-document shared media; no case-study content or document scrolling changes. */
+@view-transition{navigation:auto}
+::view-transition-group(project-bridge){animation-duration:.65s;animation-timing-function:cubic-bezier(.22,1,.36,1);perspective:1400px}
+::view-transition-old(project-bridge){animation:bridge-away .65s cubic-bezier(.22,1,.36,1) both;backface-visibility:hidden}
+::view-transition-new(project-bridge){animation:bridge-arrive .65s cubic-bezier(.22,1,.36,1) both;backface-visibility:hidden}
+@keyframes bridge-away{0%{opacity:1;transform:rotateY(0)}65%{opacity:.5;transform:rotateY(-10deg)}100%{opacity:0;transform:rotateY(0)}}
+@keyframes bridge-arrive{0%{opacity:0;transform:rotateY(10deg)}100%{opacity:1;transform:rotateY(0)}}
+.husky-editorial.is-arriving .ed-title-grid{animation:project-intro-in .65s cubic-bezier(.22,1,.36,1) both}
+@keyframes project-intro-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.route-media-bridge{position:fixed;z-index:9999;pointer-events:none;object-fit:cover;transform-origin:center;box-shadow:0 20px 40px #18231825}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}:root:not(.motion-preview)::view-transition-group(*),:root:not(.motion-preview)::view-transition-old(*),:root:not(.motion-preview)::view-transition-new(*){animation:none!important}.husky-editorial:not(.motion-preview).is-arriving .ed-title-grid{animation:none}}
