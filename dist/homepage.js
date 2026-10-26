@@ -7,6 +7,7 @@
  const reduced={get matches(){return mediaPreference.matches&&!previewMotion}};
  const card=stage.querySelector('.featured-project'),copy=stage.querySelector('.project-copy');
  const images=[...stage.querySelectorAll('.project-image')],buttons=[...stage.querySelectorAll('[data-select]')];
+ const backdrops=[...stage.querySelectorAll('.project-backdrop')];
  const previous=stage.querySelector('[aria-label="Previous project"]'),next=stage.querySelector('[aria-label="Next project"]');
  const gesture=new ProjectGesture(),cache=new Map();
  const ease='cubic-bezier(.22,1,.36,1)',duration=660;
@@ -49,6 +50,8 @@
  function resetVisuals(){
   motion.forEach(animation=>animation.cancel());motion=[];departing?.remove();departing=null;
   const p=projects[active];images[front].src='/assets/'+p.image;
+  backdrops[front].src='/assets/'+p.image;
+  backdrops.forEach((image,i)=>image.classList.toggle('is-front',i===front));
   images.forEach((image,i)=>{
    image.classList.toggle('is-front',i===front);image.style.zIndex=i===front?'2':'1';
    image.alt=i===front?p.alt:'';if(i===front)image.removeAttribute('aria-hidden');else image.setAttribute('aria-hidden','true');
@@ -78,6 +81,8 @@
    Object.assign(departing.querySelector('.card-cta').style,{opacity:outgoingCTA,visibility:'visible'});
    document.body.append(departing);
   }
+  const outgoing=front;
+  backdrops[incoming].src='/assets/'+p.image;
   active=target;front=incoming;navigation();preload();
   images.forEach((image,i)=>{
    image.classList.toggle('is-front',i===front);image.style.zIndex=i===front?'2':'1';
@@ -93,6 +98,10 @@
    animate(card,[{transform:`translate3d(0,${entry}px,0) rotateX(${direction*1.4}deg) rotateY(-.8deg)`},{transform:rest}],{duration,delay:35,fill:'both'}),
    animate(images[front],[{transform:'scale(1.022)'},{transform:'scale(1.012)'}],{duration:530,delay:100})
   ]);
+  const backgroundMotion=Promise.all([
+   animate(backdrops[outgoing],[{opacity:1,transform:'translateY(0) scale(1)'},{opacity:0,transform:`translateY(${-direction*14}px) scale(1.012)`}],{duration:620,fill:'both'}),
+   animate(backdrops[incoming],[{opacity:0,transform:`translateY(${direction*14}px) scale(1.018)`},{opacity:1,transform:'translateY(0) scale(1)'}],{duration:700,fill:'both'})
+  ]);
   const textMotion=(async()=>{
    await animate(copy,[{opacity:1},{opacity:0}],{duration:130,easing:'cubic-bezier(.4,0,1,1)'});
    if(token!==epoch)return;text(p);
@@ -102,7 +111,7 @@
    animate(stage.querySelector('[data-card-number]'),[{opacity:.2,transform:`translateY(${direction*7}px)`},{opacity:1,transform:'translateY(0)'}],{duration:300,delay:150}),
    animate(stage.querySelector('.card-stroke'),[{transform:'scaleX(.55)'},{transform:'scaleX(1)'}],{duration:420,delay:190})
   ]);
-  await Promise.all([objectMotion,textMotion,details]);if(token!==epoch)return;
+  await Promise.all([objectMotion,textMotion,details,backgroundMotion]);if(token!==epoch)return;
   resetVisuals();settle();drain();
  }
  function drain(){
@@ -126,7 +135,6 @@
   addEventListener('scroll',updateArrival,{passive:true,signal});
   addEventListener('resize',updateArrival,{passive:true,signal});
   updateArrival();
-  document.querySelector('.intro-work').addEventListener('click',event=>{event.preventDefault();gesture.reset();window.scrollTo({top:showcaseTop(),behavior:reduced.matches?'instant':'smooth'})},{signal});
   stage.querySelector('.showcase-top').addEventListener('click',()=>{
    epoch++;pending=null;active=0;resetVisuals();settle();gesture.reset();
    window.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});
