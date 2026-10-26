@@ -187,3 +187,11 @@
 /* Work archive shares the scrolling showcase footer treatment. */
 .work-page .site-footer{justify-content:flex-end;min-height:4.5dvh;padding-block:17px;padding-right:max(var(--pad),calc((100% - 1800px)/2 + var(--pad)));font-size:7px;background:#eeeee9}
 @media(max-width:760px){.work-page .site-footer{min-height:0;padding-block:18px}}
+
+@font-face{font-family:'Chakra Petch';src:url('/assets/fonts/ChakraPetch-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
+.home-editorial .intro-copy h1,.work-page .page-heading h1,.husky-editorial .ed-title-grid h1{font-family:'Chakra Petch',var(--sans);font-weight:600;letter-spacing:-.055em}
+
+/* Shared vector arrows keep their linework on desktop and mobile. */
+.ui-arrow{display:inline-block;width:1em;height:1em;vertical-align:-.15em;flex-shrink:0;overflow:visible}
+.site-header{grid-template-columns:auto 1fr}.site-header nav{justify-self:end}
+.page-kicker a,.ed-kicker a{font-size:9px;line-height:1.6;gap:8px}

@@ -70,3 +70,16 @@ html:has(body.husky-editorial){scroll-padding-top:0}
 /* Center the project index; remove the duplicate right-side label. */
 .ed-kicker{grid-template-columns:1fr 1fr 1fr}.ed-kicker>span:nth-child(2){justify-self:center;white-space:nowrap}
 @media(max-width:760px){.ed-kicker{grid-template-columns:1fr 1fr 1fr}.ed-kicker>span:last-child{display:block}}
+
+@font-face{font-family:'Chakra Petch';src:url('/assets/fonts/ChakraPetch-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap}
+.husky-editorial .ed-section-heading h2,.husky-editorial .ed-section h3:not(.ed-role h3){font-family:'Chakra Petch',var(--sans);font-weight:300}
+
+.ed-project-company,.ed-project-name{display:block}
+.ed-title-grid h1 .ed-project-name{font-size:.6em;line-height:1.1;letter-spacing:-.035em;margin-top:.3em}
+
+/* Direct section titles occupy the removed eyebrow baseline. */
+.ed-section-heading.ed-heading-direct h2{margin-top:0}
+
+/* Match the archive back link's gutter and distance below the header. */
+.ed-opening{padding-top:24px}
+.ed-kicker{position:relative;left:50%;transform:translateX(-50%);width:min(100vw,1800px);padding-inline:var(--pad);min-height:16px}
