@@ -17,7 +17,7 @@ def icon(direction='right'):
  return f'<svg class="caret {direction}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>'
 def header(active=''):
  links=''.join(f'<a href="/{url}/" '+('aria-current="page"' if active==url else '')+f'>{label}</a>' for i,(url,label) in enumerate([('work','Work'),('about','About'),('connect','Connect')]))
- return f'<a class="skip" href="#main">Skip to content</a><header class="site-header" id="top"><a class="brand" href="/" aria-label="Ben Diaz home"><img src="/assets/brand-diaz-logo.png" alt="Diaz" width="62" height="43"></a><span class="header-meta micro">DESIGNER &amp; THEN EVERYTHING ELSE</span><nav aria-label="Main navigation">{links}</nav></header>'
+ return f'<a class="skip" href="#main">Skip to content</a><header class="site-header" id="top"><a class="brand" href="/" aria-label="Ben Diaz home"><img src="/assets/brand-diaz-logo.png" alt="Diaz" width="62" height="43"></a><nav aria-label="Main navigation">{links}</nav></header>'
 def footer(compact=False):
  if compact:return '<footer class="site-footer micro"><span>© 2026 BEN DIAZ</span></footer></body></html>'
  return '<footer class="site-footer micro"><span>© 2026 BEN DIAZ</span><span>MIDWEST BORN &amp; BRED</span><a href="#top">BACK TO TOP '+icon('up')+'</a></footer><dialog class="lightbox" aria-label="Enlarged project image"><button class="text-button" type="button">CLOSE ×</button><img alt=""></dialog></body></html>'
@@ -28,8 +28,17 @@ def head(title,desc,cls=''):
   jv=hashlib.sha256((OUT/'project-transition.js').read_bytes()).hexdigest()[:10]
   bridge=f'<link rel="stylesheet" href="/project-transition.css?v={cv}"><script defer src="/project-transition.js?v={jv}"></script>'
  return f'<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#eeeeec"><title>{e(title)} — Ben Diaz</title><meta name="description" content="{e(desc)}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="preload" href="/assets/fonts/8d5b983ea6503b7d-s.p.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css?v={asset_css}"><script defer src="/script.js?v={asset_js}"></script>{bridge}</head><body class="{cls}">'
+ARROW_PATHS={
+ '↗':'M5 19 19 5M5 5h14v14',
+ '→':'M3 12h18m-7-7 7 7-7 7',
+ '←':'M21 12H3m7-7-7 7 7 7',
+ '↑':'M12 21V3m-7 7 7-7 7 7',
+ '↓':'M12 3v18m-7-7 7 7 7-7',
+}
+def arrow_svg(direction):
+ return '<svg class="ui-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true" focusable="false"><path d="'+ARROW_PATHS[direction]+'"/></svg>'
 def save(path,html):
- dest=OUT/path;dest.parent.mkdir(exist_ok=True,parents=True);dest.write_text(html)
+ dest=OUT/path;dest.parent.mkdir(exist_ok=True,parents=True);dest.write_text(re.sub(r'>([^<]+)<', lambda m: '>'+''.join(arrow_svg(c) if c in ARROW_PATHS else c for c in m[1])+'<', html))
 def link(text,url,cls=''):
  return f'<a class="button {cls}" href="{e(url)}"><span>{text}</span>{icon()}</a>'
 def cover(p,lazy=True):
