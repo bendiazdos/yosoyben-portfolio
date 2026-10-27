@@ -83,3 +83,9 @@ html:has(body.husky-editorial){scroll-padding-top:0}
 /* Match the archive back link's gutter and distance below the header. */
 .ed-opening{padding-top:24px}
 .ed-kicker{position:relative;left:50%;transform:translateX(-50%);width:min(100vw,1800px);padding-inline:var(--pad);min-height:16px}
+
+/* Put the project count opposite Back at the shared right-hand gutter. */
+.ed-kicker{grid-template-columns:minmax(0,1fr) auto}
+.ed-kicker>span:nth-child(2){justify-self:end}
+/* These two source boards include a thin red export frame. Hide only that edge. */
+.husky-editorial img:is([src$="/projects-husky-ui-components.jpg"],[src$="/projects-husky-chapter-screens.jpg"]){clip-path:inset(2px)}

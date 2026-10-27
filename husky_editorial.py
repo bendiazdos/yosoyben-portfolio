@@ -29,7 +29,7 @@ def render_husky(p,sections,head,header,footer,icon):
  js=hashlib.sha256((root/'dist/husky-editorial.js').read_bytes()).hexdigest()[:10]
  page=page.replace('</head>',f'<link rel="stylesheet" href="/husky-editorial.css?v={css}"><script defer src="/husky-editorial.js?v={js}"></script></head>')
  page+=header('work')+'''<main id="main"><div class="ed-preview ed-shell micro"><span>HUSKY / EDITORIAL STUDY</span><a href="https://yosoyben.com/work/husky/" target="_blank" rel="noopener">VIEW CURRENT PAGE ↗</a></div>
- <section class="ed-opening" id="experience"><div class="ed-shell"><div class="ed-kicker micro"><a href="/work/">'''+icon('left')+''' ALL WORK</a><span>01 — 06</span></div>
+ <section class="ed-opening" id="experience"><div class="ed-shell"><div class="ed-kicker micro"><a class="site-back" data-page-back href="/work/" aria-label="Back to previous page">'''+icon('left')+''' BACK</a><span>01 — 06</span></div>
  <div class="ed-title-grid"><h1><span class="ed-project-company">Husky Technologies</span><em class="ed-project-name">Drinktec Experience</em></h1><div class="ed-intro">'''+para(p['description'])+'''<a class="ed-down micro" href="#challenge">THE THINKING BEHIND THE EXPERIENCE ↓</a></div></div></div>'''
  page+=media('projects-husky.jpg','Husky Drinktec booth with a phoenix spanning the curved LED canopy','01','THE FINISHED EXPERIENCE / DRINKTEC','ed-hero',True)
  page+='</section><nav class="ed-index" aria-label="Case study sections"><div class="ed-shell">'
@@ -117,7 +117,7 @@ def render_project(p,projects,sections,data,focus,head,header,footer,icon):
  page=head(p['client']+' / '+p['short'],p['description'],'husky-editorial editorial-project')
  page=page.replace('</head>',f'<link rel="stylesheet" href="/husky-editorial.css?v={css}"><script defer src="/husky-editorial.js?v={js}"></script></head>')+header('work')
  headline='<span class="ed-project-company">'+e(p['client'])+'</span><em class="ed-project-name">'+e(p['short'])+'</em>'
- page+='<main id="main"><section class="ed-opening" id="experience"><div class="ed-shell"><div class="ed-kicker micro"><a href="/work/">'+icon('left')+' ALL WORK</a><span>'+f'{projects.index(p)+1:02d} — 06'+'</span></div>'
+ page+='<main id="main"><section class="ed-opening" id="experience"><div class="ed-shell"><div class="ed-kicker micro"><a class="site-back" data-page-back href="/work/" aria-label="Back to previous page">'+icon('left')+' BACK</a><span>'+f'{projects.index(p)+1:02d} — 06'+'</span></div>'
  page+='<div class="ed-title-grid"><h1>'+headline+'</h1><div class="ed-intro"><span class="micro">'+e(p['short'])+'</span>'+paras([p['description']])+'<a class="ed-down micro" href="#challenge">THE THINKING BEHIND THE EXPERIENCE ↓</a></div></div></div>'+media(p['image'],p['alt'],'ed-hero',True)+'</section>'
  page+='<nav class="ed-index" aria-label="Case study sections"><div class="ed-shell" style="--ed-count:'+str(len(nav))+'">'+''.join(f'<a href="#{id}"><span class="micro">{n:02d}</span>{e(label)}</a>' for n,(id,label) in enumerate(nav,1))+'</div></nav>'
  page+='<section class="ed-section ed-shell" id="challenge">'+heading(2,'THE DESIGN CHALLENGE','The brief. The responsibility.')

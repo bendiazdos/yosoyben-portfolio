@@ -110,7 +110,9 @@
 @media(prefers-reduced-motion:reduce){.work-card-cover,.work-card{transition:none}}
 
 /* Circular arrow pointer for the next-project card. */
-@media(hover:hover) and (pointer:fine){.next-project>a,.next-project>a *,.work-card,.work-card *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2229%22%20fill%3D%22%23eeeeec%22%20stroke%3D%22%23191c1b%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M20%2032h24m-9-9%209%209-9%209%22%20fill%3D%22none%22%20stroke%3D%22%23191c1b%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") 32 32,pointer}}
+@media(hover:hover) and (pointer:fine){
+ .next-project>a,.next-project>a *,.work-card,.work-card *,.featured-project,.featured-project *,.ed-next,.ed-next *{cursor:url('/assets/project-cursor.svg') 17 17,pointer}
+}
 
 /* Match the centered page-shell content edges on wide screens. */
 .site-header{padding-inline:max(var(--pad),calc((100% - 1800px)/2 + var(--pad)))}
@@ -195,3 +197,11 @@
 .ui-arrow{display:inline-block;width:1em;height:1em;vertical-align:-.15em;flex-shrink:0;overflow:visible}
 .site-header{grid-template-columns:auto 1fr}.site-header nav{justify-self:end}
 .page-kicker a,.ed-kicker a{font-size:9px;line-height:1.6;gap:8px}
+
+/* One shared back control on every interior page. */
+.site-back{display:inline-flex;align-items:center;gap:8px;font:9px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.site-back .caret{width:12px;height:12px;flex-shrink:0}
+.site-back:hover{color:var(--accent)}
+.site-back{min-height:16px}
+
+@media(hover:hover) and (pointer:fine){.work-page .work-card,.work-page .work-card *{cursor:url('/assets/project-cursor-white.svg?v=paper') 17 17,pointer}}
