@@ -91,3 +91,31 @@ if(canvas){
  new ResizeObserver(resize).observe(stage);new IntersectionObserver(entries=>visible=entries[0].isIntersecting).observe(canvas);updateToggle();resize();frame=requestAnimationFrame(animate);
  addEventListener('pagehide',()=>cancelAnimationFrame(frame),{once:true});
 }
+
+// Return to the preceding page, skipping this page's section/hash entries.
+(() => {
+ const pageKey = url => url.origin + url.pathname + url.search;
+ document.addEventListener('click', event => {
+  const link = event.target.closest('[data-page-back]');
+  if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const current = new URL(location.href);
+  const entries = window.navigation?.entries();
+  const index = window.navigation?.currentEntry?.index;
+  if (entries && Number.isInteger(index)) {
+   for (let i = index - 1; i >= 0; i--) {
+    if (!entries[i].url) break;
+    const previous = new URL(entries[i].url);
+    if (pageKey(previous) === pageKey(current)) continue;
+    if (previous.origin === current.origin) {
+     event.preventDefault(); history.go(i - index);
+    }
+    return;
+   }
+  } else if (document.referrer) {
+   const previous = new URL(document.referrer);
+   if (previous.origin === current.origin && pageKey(previous) !== pageKey(current)) {
+    event.preventDefault(); location.replace(previous.href);
+   }
+  }
+ });
+})();
